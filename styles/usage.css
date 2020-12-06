@@ -4,6 +4,16 @@
   padding: 60px 0 30px;
 }
 
+.usage__about {
+  margin-bottom: 25px;
+}
+
+.usage__title {
+  font-size: 28px;
+  line-height: 36px;
+  color: #ffe701;
+}
+
 .space {
   height: 500px;
 }

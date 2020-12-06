@@ -31,3 +31,27 @@ function showQuantity() {
     $(window).off("scroll", showQuantity);
   }
 }
+
+new Glide(".glide", {
+  type: "carousel",
+  breakpoints: {
+    3000: {
+      perView: 4,
+    },
+    1024: {
+      perView: 3,
+    },
+    768: {
+      perView: 2,
+    },
+  },
+
+  startAt: 0,
+}).mount();
+
+setTimeout(() => {
+  let btnElem = $(".gallery__arrows");
+  let galleryHeight = $(".gallery__wrapper").height() / 2;
+  console.log(galleryHeight);
+  btnElem.css("top", `${galleryHeight}px`);
+}, 300);
