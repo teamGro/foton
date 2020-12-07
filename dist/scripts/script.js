@@ -32,51 +32,28 @@ function showQuantity() {
   }
 }
 
-$('.gallery__slides').slick({
-  infinite: true,
-  responsive: [
-    {
-      breakpoint: 768,
-      settings: {
-        slidesToShow: 2,
-      },
+new Glide(".glide", {
+  type: "carousel",
+  breakpoints: {
+    3000: {
+      perView: 4,
     },
-    {
-      breakpoint: 1024,
-      settings: {
-        slidesToShow: 3,
-      },
+    1024: {
+      perView: 3,
     },
-    {
-      breakpoint: 1992,
-      settings: {
-        slidesToShow: 4,
-      },
+    768: {
+      perView: 2,
     },
-  ],
-  //slidesToScroll: 3,
-});
+  },
 
-// new Glide(".glide", {
-//   type: "carousel",
-//   breakpoints: {
-//     3000: {
-//       perView: 4,
-//     },
-//     1024: {
-//       perView: 3,
-//     },
-//     768: {
-//       perView: 2,
-//     },
-//   },
-
-//   startAt: 0,
-// }).mount();
+  startAt: 0,
+}).mount();
 
 setTimeout(() => {
   let btnElem = $('.gallery__arrows');
-  let galleryHeight = $('.gallery__wrapper').height() / 2;
+  let galleryHeight = $('.gallery__wrapper').height() / 2 + 5;
   console.log(galleryHeight);
   btnElem.css('top', `${galleryHeight}px`);
 }, 300);
+
+console.log($('.slick-dots'));
