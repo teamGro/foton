@@ -1,54 +1,54 @@
 .preference {
-  padding          : 60px 0 0px;
-  background-color : #fff;
-  background-image : url("../img/bg-mobile-block2.jpg");
+  padding: 60px 0 0px;
+  background-color: #fff;
+  background-image: url('../img/bg-mobile-block2.jpg');
   background-repeat: no-repeat;
-  background-size  : cover;
+  background-size: cover;
 }
 
 .preference__title {
   margin-bottom: 50px;
 
-  font-size  : 28px;
+  font-size: 28px;
   line-height: 36px;
   font-weight: 700;
 }
 
 .preference__list {
-  display        : flex;
-  flex-direction : column;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
 }
 
 .preference__item {
-  display       : flex;
+  display: flex;
   flex-direction: column;
-  padding       : 83px 5% 30px;
-  align-items   : center;
+  padding: 83px 5% 30px;
+  align-items: center;
 
-  background-image   : url("../img/icon1-block2.png");
-  background-repeat  : no-repeat;
+  background-image: url('../img/icon1-block2.png');
+  background-repeat: no-repeat;
   background-position: center top;
 }
 
 .preference__item:nth-child(2) {
-  background-image: url("../img/icon2-block2.png");
+  background-image: url('../img/icon2-block2.png');
 }
 
 .preference__item:last-child {
-  background-image: url("../img/icon3-block2.png");
+  background-image: url('../img/icon3-block2.png');
 }
 
 .preference__subtitle {
-  max-width    : 201px;
-  padding      : 14px 19px;
+  max-width: 201px;
+  padding: 14px 19px;
   margin-bottom: 40px;
   border-radius: 5px;
-  box-shadow   : -0.105px 1.997px 34px rgba(38, 38, 38, 0.19);
+  box-shadow: -0.105px 1.997px 34px rgba(38, 38, 38, 0.19);
 
-  font-size  : 18px;
+  font-size: 18px;
   line-height: 23px;
-  color      : #ffe701;
+  color: #ffe701;
   font-weight: 700;
 
   background-color: #000;
@@ -65,18 +65,18 @@ preference__img {
 
 @media (min-width: 768px) {
   .preference {
-    background-image: url("../img/bg-block2.jpg");
+    background-image: url('../img/bg-block2.jpg');
   }
 
   .preference__list {
-    flex-direction : row;
+    flex-direction: row;
     justify-content: space-between;
   }
 
   .preference__item {
     padding-right: 0;
-    padding-left : 0;
-    max-width    : 30%;
+    padding-left: 0;
+    max-width: 30%;
   }
 }
 
@@ -94,20 +94,26 @@ preference__img {
   }
 
   .preference__item {
-    max-width     : 262px;
+    max-width: 262px;
     padding-bottom: 90px;
+  }
+
+  .preference__item:not(:last-child) {
+    margin-right: 35px;
   }
 
   .preference__box_right {
     position: relative;
 
-    width  : 37%;
+    width: 37%;
     display: flex;
   }
 
   .preference__img {
     position: absolute;
-    bottom  : -2px;
-    display : block;
+    bottom: -2px;
+    display: block;
+    transform-origin: left bottom;
+    transform: scale(1.3);
   }
 }

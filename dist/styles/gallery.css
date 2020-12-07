@@ -16,6 +16,10 @@
   overflow: hidden;
 }
 
+.gallery__item {
+  /* width: 50%; */
+}
+
 .gallery__arrows {
   display: none;
 }
