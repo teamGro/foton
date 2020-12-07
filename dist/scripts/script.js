@@ -49,6 +49,18 @@ new Glide(".glide", {
   startAt: 0,
 }).mount();
 
+new Glide(".glide_2", {
+  type: "carousel",
+  perView: 1,
+  startAt: 0,
+  peek: {
+    before: 0,
+    after: 50
+  },
+}).mount();
+
+
+
 setTimeout(() => {
   let btnElem = $('.gallery__arrows');
   let galleryHeight = $('.gallery__wrapper').height() / 2 + 5;
