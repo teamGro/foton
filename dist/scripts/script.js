@@ -225,4 +225,8 @@ function createMarkupForGallerySlider(parent, data) {
   let parentTop = $(window).scrollTop() + $(window).height() / 2;
   parent.css('top', `${parentTop}px`);
 
+  new Glide('.glide_3', {
+    perView: 1
+  }).mount()
+
 }
