@@ -1,3 +1,72 @@
+let windowWidth = $(window).width();
+let firstBlockSlider;
+let isSliderExist = false;
+if (windowWidth < 1300) {
+  firstBlockSlider = new Glide(".glide_2", {
+    type: "carousel",
+    startAt: 0,
+    peek: {
+      before: 0,
+      after: 50
+    },
+    breakpoints: {
+      490: {
+        perView: 1
+      },
+      768: {
+        perView: 2,
+
+      },
+      1024: {
+        perView: 3
+      },
+      1301: {
+        perView: 4
+      }
+    }
+  }).mount();
+  isSliderExist = true;
+}
+
+$(window).on('resize', () => {
+  if ($(window).width() <= 1300 && !isSliderExist) {
+
+    firstBlockSlider = new Glide(".glide_2", {
+      type: "carousel",
+      startAt: 0,
+      peek: {
+        before: 0,
+        after: 50
+      },
+      breakpoints: {
+        490: {
+          perView: 1
+        },
+        768: {
+          perView: 2,
+
+        },
+        1024: {
+          perView: 3
+        },
+        1301: {
+          perView: 4
+        }
+      }
+    }).mount();
+    isSliderExist = true;
+    return;
+  }
+
+  if ($(window).width() > 1300 && isSliderExist) {
+    firstBlockSlider.destroy();
+    isSliderExist = false;
+    return;
+  }
+})
+
+
+
 let aboutQuantites = document.querySelectorAll('.about__quantity');
 let aboutQuantityValues = [
   {
@@ -48,18 +117,6 @@ new Glide(".glide", {
 
   startAt: 0,
 }).mount();
-
-new Glide(".glide_2", {
-  type: "carousel",
-  perView: 1,
-  startAt: 0,
-  peek: {
-    before: 0,
-    after: 50
-  },
-}).mount();
-
-
 
 setTimeout(() => {
   let btnElem = $('.gallery__arrows');
