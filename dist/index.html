@@ -4,14 +4,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- <link rel="stylesheet" href="./styles/swier.min.css" /> -->
-  <link rel="stylesheet" href="./styles/slick.css">
   <link rel="stylesheet" href="./styles/styles.css" />
   <link rel="stylesheet" href="./styles/service.css" />
   <link rel="stylesheet" href="./styles/peference.css" />
   <link rel="stylesheet" href="./styles/usage.css" />
   <link rel="stylesheet" href="./styles/about.css" />
   <link rel="stylesheet" href="./styles/gallery.css" />
+  <link rel="stylesheet" href="./styles/modalSlider.css">
   <title>Foton</title>
 </head>
 
@@ -177,68 +176,68 @@
           <div class="gallery__wrapper glide__track" data-glide-el="track">
             <div class="gallery__slides glide__slides">
               <div class="gallery__item glide__slide">
-                <a href="#" class="gallery__link">
+                <div class="gallery__link" id="1">
                   <img src="./img/img1-block3.jpg" alt="" class="gallery__img" />
-                </a>
-                <a href="#" class="gallery__link">
+                </div>
+                <div class="gallery__link" id="2">
                   <img src="./img/img2-block3.jpg" alt="" class="gallery__img" />
-                </a>
+                </div>
               </div>
               <div class="gallery__item glide__slide">
-                <a href="#" class="gallery__link">
+                <div class="gallery__link" id="3">
                   <img src="./img/img3-block3.jpg" alt="" class="gallery__img" />
-                </a>
-                <a href="#" class="gallery__link">
+                </div>
+                <div class="gallery__link" id="4">
                   <img src="./img/img4-block3.jpg" alt="" class="gallery__img" />
-                </a>
+                </div>
               </div>
               <div class="gallery__item glide__slide">
-                <a href="#" class="gallery__link">
+                <div class="gallery__link" id="5">
                   <img src="./img/img1-block3.jpg" alt="" class="gallery__img" />
-                </a>
-                <a href="#" class="gallery__link">
+                </div>
+                <div class="gallery__link" id="6">
                   <img src="./img/img2-block3.jpg" alt="" class="gallery__img" />
-                </a>
+                </div>
               </div>
               <div class="gallery__item glide__slide">
-                <a href="#" class="gallery__link">
+                <div class="gallery__link" id="7">
                   <img src="./img/img3-block3.jpg" alt="" class="gallery__img" />
-                </a>
-                <a href="#" class="gallery__link">
+                </div>
+                <div class="gallery__link" id="8">
                   <img src="./img/img4-block3.jpg" alt="" class="gallery__img" />
-                </a>
+                </div>
               </div>
               <div class="gallery__item glide__slide">
-                <a href="#" class="gallery__link">
+                <div class="gallery__link" id="9">
                   <img src="./img/img1-block3.jpg" alt="" class="gallery__img" />
-                </a>
-                <a href="#" class="gallery__link">
+                </div>
+                <div class="gallery__link" id="10">
                   <img src="./img/img2-block3.jpg" alt="" class="gallery__img" />
-                </a>
+                </div>
               </div>
               <div class="gallery__item glide__slide">
-                <a href="#" class="gallery__link">
+                <div class="gallery__link" id="11">
                   <img src="./img/img3-block3.jpg" alt="" class="gallery__img" />
-                </a>
-                <a href="#" class="gallery__link">
+                </div>
+                <div class="gallery__link" id="12">
                   <img src="./img/img4-block3.jpg" alt="" class="gallery__img" />
-                </a>
+                </div>
               </div>
               <div class="gallery__item glide__slide">
-                <a href="#" class="gallery__link">
+                <div class="gallery__link" id="13">
                   <img src="./img/img1-block3.jpg" alt="" class="gallery__img" />
-                </a>
-                <a href="#" class="gallery__link">
+                </div>
+                <div class="gallery__link" id="14">
                   <img src="./img/img2-block3.jpg" alt="" class="gallery__img" />
-                </a>
+                </div>
               </div>
               <div class="gallery__item glide__slide">
-                <a href="#" class="gallery__link">
+                <div class="gallery__link" id="15">
                   <img src="./img/img3-block3.jpg" alt="" class="gallery__img" />
-                </a>
-                <a href="#" class="gallery__link">
+                </div>
+                <div class="gallery__link" id="16">
                   <img src="./img/img4-block3.jpg" alt="" class="gallery__img" />
-                </a>
+                </div>
               </div>
             </div>
           </div>
@@ -259,8 +258,20 @@
     </div>
   </section>
 
-
   <section class="space"></section>
+
+  <div class="overlay">
+    <div class="glide_3 gallery__modal modal">
+      <div class="glide__track modal__wrapper" data-glide-el="track">
+        <ul class="glide__slides modal__items">
+        </ul>
+      </div>
+
+      <div class="glide__arrows modal__arrows" data-glide-el="controls">
+        <button class="glide__arrow glide__arrow--right" data-glide-dir=">">next</button>
+      </div>
+    </div>
+  </div>
 
   <script src="./scripts/jquery.min.js"></script>
   <script src="./scripts/anime.min.js"></script>

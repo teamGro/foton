@@ -1,0 +1,25 @@
+.overlay {
+    position: absolute;
+    top     : 0;
+    left    : 0;
+
+    width : 0;
+    height: 0;
+
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.overlay_active {
+    width : 100vw;
+    height: 100%;
+}
+
+.modal__wrapper {
+    overflow: hidden;
+}
+
+.modal__items {
+    position: absolute;
+    overflow: hidden;
+    display : flex;
+}

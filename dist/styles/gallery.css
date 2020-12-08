@@ -22,17 +22,17 @@
   width : 50% !important;
 }
 
-.gallery__item a {
+.gallery__link {
   display: block;
   width  : 100%;
 }
 
-.gallery__item a:first-child {
+.gallery__link:first-child {
   position: relative;
-  top     : 5px;
+  top     : 6px;
 }
 
-.gallery__item>a>img {
+.gallery__link>img {
   width: 100%;
 }
 

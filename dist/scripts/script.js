@@ -121,8 +121,108 @@ new Glide(".glide", {
 setTimeout(() => {
   let btnElem = $('.gallery__arrows');
   let galleryHeight = $('.gallery__wrapper').height() / 2 + 5;
-  console.log(galleryHeight);
   btnElem.css('top', `${galleryHeight}px`);
 }, 300);
 
-console.log($('.slick-dots'));
+let galleryData = {
+  1: {
+    group: 1,
+    imgSet: ['./img/img1-block3.jpg', './img/img2-block3.jpg', './img/img3-block3.jpg']
+  },
+  2: {
+    group: 2,
+    imgSet: ['../img/img2-block3.jpg', '../img/img1-block3.jpg', '../img/img3-block3.jpg']
+  },
+  3: {
+    group: 3,
+    imgSet: ['../img/img3-block3.jpg', '../img/img2-block3.jpg', '../img/img1-block3.jpg']
+  },
+  4: {
+    group: 4,
+    imgSet: ['../img/img4-block4.jpg', '../img/img2-block3.jpg', '../img/img1-block3.jpg']
+  },
+  5: {
+    group: 5,
+    imgSet: ['../img/img1-block4.jpg', '../img/img2-block3.jpg', '../img/img1-block3.jpg']
+  },
+  6: {
+    group: 6,
+    imgSet: ['../img/img2-block4.jpg', '../img/img2-block3.jpg', '../img/img1-block3.jpg']
+  },
+  7: {
+    group: 7,
+    imgSet: ['../img/img3-block4.jpg', '../img/img2-block3.jpg', '../img/img1-block3.jpg']
+  },
+  8: {
+    group: 4,
+    imgSet: ['../img/img4-block4.jpg', '../img/img2-block3.jpg', '../img/img1-block3.jpg']
+  },
+  9: {
+    group: 4,
+    imgSet: ['../img/img1-block4.jpg', '../img/img2-block3.jpg', '../img/img1-block3.jpg']
+  },
+  10: {
+    group: 4,
+    imgSet: ['../img/img2-block4.jpg', '../img/img2-block3.jpg', '../img/img1-block3.jpg']
+  },
+  11: {
+    group: 4,
+    imgSet: ['../img/img3-block4.jpg', '../img/img2-block3.jpg', '../img/img1-block3.jpg']
+  },
+  12: {
+    group: 4,
+    imgSet: ['../img/img4-block4.jpg', '../img/img2-block3.jpg', '../img/img1-block3.jpg']
+  },
+  13: {
+    group: 4,
+    imgSet: ['../img/img1-block4.jpg', '../img/img2-block3.jpg', '../img/img1-block3.jpg']
+  },
+  14: {
+    group: 4,
+    imgSet: ['../img/img2-block4.jpg', '../img/img2-block3.jpg', '../img/img1-block3.jpg']
+  },
+  15: {
+    group: 4,
+    imgSet: ['../img/img3-block4.jpg', '../img/img2-block3.jpg', '../img/img1-block3.jpg']
+  },
+  16: {
+    group: 4,
+    imgSet: ['../img/img4-block4.jpg', '../img/img2-block3.jpg', '../img/img1-block3.jpg']
+  },
+}
+
+// $(window).on('click', () => {
+//   if (overlay.hasClass('overlay_active')) {
+//     console.log(2);
+//     overlay.removeClass('overlay_active');
+//   }
+// })
+
+let overlay = $('.overlay');
+$('.gallery__slides').on('click', (e) => {
+  let target = $(e.target);
+  target = target.closest('.gallery__link');
+  targetID = target.attr('id');
+  console.log(1);
+  overlay.addClass('overlay_active');
+  console.log(overlay);
+  let parentElem = overlay.find('.modal__items');
+  createMarkupForGallerySlider(parentElem, galleryData[targetID]);
+});
+
+
+
+function createMarkupForGallerySlider(parent, data) {
+  for (let i = 0; i < data.imgSet.length; i++) {
+    let item = document.createElement('li');
+    item.className = 'glide__slide modal__item';
+    let img = document.createElement('img');
+    img.src = data.imgSet[i];
+    item.append(img);
+    parent.append(item)
+  }
+
+  let parentTop = $(window).scrollTop() + $(window).height() / 2;
+  parent.css('top', `${parentTop}px`);
+
+}

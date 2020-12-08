@@ -134,13 +134,13 @@ button {
 }
 
 .service__item,
-.gallery__item>a {
+.gallery__link {
   position: relative;
   overflow: hidden;
 }
 
 .service__item::before,
-.gallery__item>a::before {
+.gallery__link::before {
   position         : absolute;
   top              : 0;
   left             : -75%;
@@ -156,7 +156,7 @@ button {
 }
 
 .service__item:hover::before,
-.gallery__item>a:hover::before {
+.gallery__link:hover::before {
   -webkit-animation: shine .75s;
   animation        : shine .75s;
 }

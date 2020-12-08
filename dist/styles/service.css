@@ -4,6 +4,9 @@
 
 .service__title {
   margin-bottom: 30px;
+  font-size    : 28px;
+  line-height  : 36px;
+  font-weight  : 700;
 }
 
 .service__wrapper {
