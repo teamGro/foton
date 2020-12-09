@@ -132,63 +132,63 @@ let galleryData = {
   },
   2: {
     group: 2,
-    imgSet: ['../img/img2-block3.jpg', '../img/img1-block3.jpg', '../img/img3-block3.jpg'],
+    imgSet: ['./img/img2-block3.jpg', './img/img1-block3.jpg', './img/img3-block3.jpg'],
   },
   3: {
     group: 3,
-    imgSet: ['../img/img3-block3.jpg', '../img/img2-block3.jpg', '../img/img1-block3.jpg'],
+    imgSet: ['./img/img3-block3.jpg', './img/img2-block3.jpg', './img/img1-block3.jpg'],
   },
   4: {
     group: 4,
-    imgSet: ['../img/img4-block4.jpg', '../img/img2-block3.jpg', '../img/img1-block3.jpg'],
+    imgSet: ['./img/img4-block3.jpg', './img/img2-block3.jpg', './img/img1-block3.jpg'],
   },
   5: {
     group: 5,
-    imgSet: ['../img/img1-block4.jpg', '../img/img2-block3.jpg', '../img/img1-block3.jpg'],
+    imgSet: ['./img/img1-block3.jpg', './img/img2-block3.jpg', './img/img1-block3.jpg'],
   },
   6: {
     group: 6,
-    imgSet: ['../img/img2-block4.jpg', '../img/img2-block3.jpg', '../img/img1-block3.jpg'],
+    imgSet: ['./img/img2-block3.jpg', './img/img2-block3.jpg', './img/img1-block3.jpg'],
   },
   7: {
     group: 7,
-    imgSet: ['../img/img3-block4.jpg', '../img/img2-block3.jpg', '../img/img1-block3.jpg'],
+    imgSet: ['./img/img3-block3.jpg', './img/img2-block3.jpg', './img/img1-block3.jpg'],
   },
   8: {
     group: 4,
-    imgSet: ['../img/img4-block4.jpg', '../img/img2-block3.jpg', '../img/img1-block3.jpg'],
+    imgSet: ['./img/img4-block3.jpg', './img/img2-block3.jpg', './img/img1-block3.jpg'],
   },
   9: {
     group: 4,
-    imgSet: ['../img/img1-block4.jpg', '../img/img2-block3.jpg', '../img/img1-block3.jpg'],
+    imgSet: ['./img/img1-block3.jpg', './img/img2-block3.jpg', './img/img1-block3.jpg'],
   },
   10: {
     group: 4,
-    imgSet: ['../img/img2-block4.jpg', '../img/img2-block3.jpg', '../img/img1-block3.jpg'],
+    imgSet: ['./img/img2-block3.jpg', './img/img2-block3.jpg', './img/img1-block3.jpg'],
   },
   11: {
     group: 4,
-    imgSet: ['../img/img3-block4.jpg', '../img/img2-block3.jpg', '../img/img1-block3.jpg'],
+    imgSet: ['./img/img3-block3.jpg', './img/img2-block3.jpg', './img/img1-block3.jpg'],
   },
   12: {
     group: 4,
-    imgSet: ['../img/img4-block4.jpg', '../img/img2-block3.jpg', '../img/img1-block3.jpg'],
+    imgSet: ['./img/img4-block3.jpg', './img/img2-block3.jpg', './img/img1-block3.jpg'],
   },
   13: {
     group: 4,
-    imgSet: ['../img/img1-block4.jpg', '../img/img2-block3.jpg', '../img/img1-block3.jpg'],
+    imgSet: ['./img/img1-block3.jpg', './img/img2-block3.jpg', './img/img1-block3.jpg'],
   },
   14: {
     group: 4,
-    imgSet: ['../img/img2-block4.jpg', '../img/img2-block3.jpg', '../img/img1-block3.jpg'],
+    imgSet: ['./img/img2-block3.jpg', './img/img2-block3.jpg', './img/img1-block3.jpg'],
   },
   15: {
     group: 4,
-    imgSet: ['../img/img3-block4.jpg', '../img/img2-block3.jpg', '../img/img1-block3.jpg'],
+    imgSet: ['./img/img3-block3.jpg', './img/img2-block3.jpg', './img/img1-block3.jpg'],
   },
   16: {
     group: 4,
-    imgSet: ['../img/img4-block4.jpg', '../img/img2-block3.jpg', '../img/img1-block3.jpg'],
+    imgSet: ['./img/img4-block3.jpg', './img/img2-block3.jpg', './img/img1-block3.jpg'],
   },
 };
 
@@ -207,6 +207,7 @@ $('.gallery__slides').on('click', (e) => {
   targetID = target.attr('id');
 
   overlay.addClass('overlay_active');
+  overlay.css('transform', 'translateX(0)');
 
   let parentElem = overlay.find('.modal__items');
   createMarkupForGallerySlider(parentElem, galleryData[targetID]);
@@ -219,8 +220,13 @@ $('.gallery__slides').on('click', (e) => {
 });
 
 btnClose.on('click', () => {
-  modalSlider.destroy();
-  overlay.removeClass('overlay_active');
+  overlay.css('transform', 'translateX(100vw)');
+
+  setTimeout(() => {
+    modalSlider.destroy();
+    overlay.find('.modal__items').empty();
+    overlay.removeClass('overlay_active');
+  }, 300);
 });
 
 let modalSlider;
@@ -233,13 +239,10 @@ function createMarkupForGallerySlider(parent, data) {
     img.src = data.imgSet[i];
     item.append(img);
     parent.append(item);
-    console.log(img);
     imgHeight = img.clientHeight;
   }
 
   let parentTop = $(window).scrollTop();
-  console.log($(window).scrollTop());
-  console.log(imgHeight);
   parent.css('top', `${parentTop}px`);
   //parent.css('transform', `translateY(${parent.height() / 2}px)`);
 

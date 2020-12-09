@@ -120,12 +120,17 @@
     cursor: pointer;
   }
 
+  .gallery__btn:hover .gallery__btn-elem {
+    border-color: #fff;
+  }
+
   .gallery__btn-elem {
     width: 15px;
     height: 15px;
     border-bottom: 2px solid #000;
     border-right: 2px solid #000;
     transform: rotate(-45deg) translate(-15%, -15%);
+    transition: border 0.3s linear;
   }
 }
 

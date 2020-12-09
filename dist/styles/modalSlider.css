@@ -8,12 +8,18 @@
 
   background-color: rgba(0, 0, 0, 0.8);
   opacity: 0;
+  overflow: hidden;
+
+  transform: translateX(100vw);
+  transition: transform 0.3s linear;
 }
 
 .overlay_active {
   width: 100vw;
   height: 100%;
   opacity: 1;
+  transform: translateX(0);
+  transition: transform 0.3s linear;
 }
 
 .modal__wrapper {
@@ -117,5 +123,10 @@
     border-bottom: 2px solid #000;
     border-right: 2px solid #000;
     transform: rotate(-45deg) translate(-15%, -15%);
+    transition: border 0.3s linear;
+  }
+
+  .modal__btn:hover .modal__btn-elem {
+    border-color: #fff;
   }
 }
