@@ -200,18 +200,32 @@ let galleryData = {
 // })
 
 let overlay = $('.overlay');
+let btnClose = overlay.find('.overlay__close');
 $('.gallery__slides').on('click', (e) => {
   let target = $(e.target);
   target = target.closest('.gallery__link');
   targetID = target.attr('id');
-  console.log(1);
+
   overlay.addClass('overlay_active');
-  console.log(overlay);
+
   let parentElem = overlay.find('.modal__items');
   createMarkupForGallerySlider(parentElem, galleryData[targetID]);
+
+  btnClose.css('top', `${$(window).scrollTop() + 30}px`);
+
+  let arrows = overlay.find('.modal__arrows');
+  let arrowTopPosition = $(window).scrollTop() + $(window).height() / 2;
+  arrows.css('top', `${arrowTopPosition}px`);
 });
 
+btnClose.on('click', () => {
+  modalSlider.destroy();
+  overlay.removeClass('overlay_active');
+});
+
+let modalSlider;
 function createMarkupForGallerySlider(parent, data) {
+  let imgHeight;
   for (let i = 0; i < data.imgSet.length; i++) {
     let item = document.createElement('li');
     item.className = 'glide__slide modal__item';
@@ -219,12 +233,17 @@ function createMarkupForGallerySlider(parent, data) {
     img.src = data.imgSet[i];
     item.append(img);
     parent.append(item);
+    console.log(img);
+    imgHeight = img.clientHeight;
   }
 
-  let parentTop = $(window).scrollTop() + $(window).height() / 2;
+  let parentTop = $(window).scrollTop();
+  console.log($(window).scrollTop());
+  console.log(imgHeight);
   parent.css('top', `${parentTop}px`);
+  //parent.css('transform', `translateY(${parent.height() / 2}px)`);
 
-  new Glide('.glide_3', {
+  modalSlider = new Glide('.glide_3', {
     perView: 1,
   }).mount();
 }
