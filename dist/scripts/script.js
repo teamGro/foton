@@ -2,57 +2,60 @@ let windowWidth = $(window).width();
 let firstBlockSlider;
 let isSliderExist = false;
 if (windowWidth < 1300) {
-  firstBlockSlider = new Glide(".glide_2", {
-    type: "carousel",
+  firstBlockSlider = new Glide('.glide_2', {
+    type: 'carousel',
     startAt: 0,
     peek: {
       before: 0,
-      after: 50
+      after: 50,
     },
     breakpoints: {
       490: {
-        perView: 1
+        perView: 1,
       },
       768: {
         perView: 2,
-
       },
       1024: {
-        perView: 3
+        perView: 3,
       },
       1301: {
-        perView: 4
-      }
-    }
+        perView: 4,
+      },
+    },
   }).mount();
   isSliderExist = true;
 }
 
 $(window).on('resize', () => {
-  if ($(window).width() <= 1300 && !isSliderExist) {
+  if ($(window).width() >= 1024) {
+    let btnElem = $('.gallery__arrows');
+    let galleryHeight = $('.gallery__wrapper').height() / 2 + 5;
+    btnElem.css('top', `${galleryHeight}px`);
+  }
 
-    firstBlockSlider = new Glide(".glide_2", {
-      type: "carousel",
+  if ($(window).width() <= 1300 && !isSliderExist) {
+    firstBlockSlider = new Glide('.glide_2', {
+      type: 'carousel',
       startAt: 0,
       peek: {
         before: 0,
-        after: 50
+        after: 50,
       },
       breakpoints: {
         490: {
-          perView: 1
+          perView: 1,
         },
         768: {
           perView: 2,
-
         },
         1024: {
-          perView: 3
+          perView: 3,
         },
         1301: {
-          perView: 4
-        }
-      }
+          perView: 4,
+        },
+      },
     }).mount();
     isSliderExist = true;
     return;
@@ -63,9 +66,7 @@ $(window).on('resize', () => {
     isSliderExist = false;
     return;
   }
-})
-
-
+});
 
 let aboutQuantites = document.querySelectorAll('.about__quantity');
 let aboutQuantityValues = [
@@ -90,8 +91,8 @@ function showQuantity() {
       anime({
         targets: item,
         innerHTML: [0, aboutQuantityValues[i].val],
-        easing: 'linear',
-        round: 10,
+        round: 1,
+        easing: 'easeInOutExpo',
       });
     });
     quantityStart = true;
@@ -101,8 +102,8 @@ function showQuantity() {
   }
 }
 
-new Glide(".glide", {
-  type: "carousel",
+new Glide('.glide', {
+  type: 'carousel',
   breakpoints: {
     3000: {
       perView: 4,
@@ -127,69 +128,69 @@ setTimeout(() => {
 let galleryData = {
   1: {
     group: 1,
-    imgSet: ['./img/img1-block3.jpg', './img/img2-block3.jpg', './img/img3-block3.jpg']
+    imgSet: ['./img/img1-block3.jpg', './img/img2-block3.jpg', './img/img3-block3.jpg'],
   },
   2: {
     group: 2,
-    imgSet: ['../img/img2-block3.jpg', '../img/img1-block3.jpg', '../img/img3-block3.jpg']
+    imgSet: ['../img/img2-block3.jpg', '../img/img1-block3.jpg', '../img/img3-block3.jpg'],
   },
   3: {
     group: 3,
-    imgSet: ['../img/img3-block3.jpg', '../img/img2-block3.jpg', '../img/img1-block3.jpg']
+    imgSet: ['../img/img3-block3.jpg', '../img/img2-block3.jpg', '../img/img1-block3.jpg'],
   },
   4: {
     group: 4,
-    imgSet: ['../img/img4-block4.jpg', '../img/img2-block3.jpg', '../img/img1-block3.jpg']
+    imgSet: ['../img/img4-block4.jpg', '../img/img2-block3.jpg', '../img/img1-block3.jpg'],
   },
   5: {
     group: 5,
-    imgSet: ['../img/img1-block4.jpg', '../img/img2-block3.jpg', '../img/img1-block3.jpg']
+    imgSet: ['../img/img1-block4.jpg', '../img/img2-block3.jpg', '../img/img1-block3.jpg'],
   },
   6: {
     group: 6,
-    imgSet: ['../img/img2-block4.jpg', '../img/img2-block3.jpg', '../img/img1-block3.jpg']
+    imgSet: ['../img/img2-block4.jpg', '../img/img2-block3.jpg', '../img/img1-block3.jpg'],
   },
   7: {
     group: 7,
-    imgSet: ['../img/img3-block4.jpg', '../img/img2-block3.jpg', '../img/img1-block3.jpg']
+    imgSet: ['../img/img3-block4.jpg', '../img/img2-block3.jpg', '../img/img1-block3.jpg'],
   },
   8: {
     group: 4,
-    imgSet: ['../img/img4-block4.jpg', '../img/img2-block3.jpg', '../img/img1-block3.jpg']
+    imgSet: ['../img/img4-block4.jpg', '../img/img2-block3.jpg', '../img/img1-block3.jpg'],
   },
   9: {
     group: 4,
-    imgSet: ['../img/img1-block4.jpg', '../img/img2-block3.jpg', '../img/img1-block3.jpg']
+    imgSet: ['../img/img1-block4.jpg', '../img/img2-block3.jpg', '../img/img1-block3.jpg'],
   },
   10: {
     group: 4,
-    imgSet: ['../img/img2-block4.jpg', '../img/img2-block3.jpg', '../img/img1-block3.jpg']
+    imgSet: ['../img/img2-block4.jpg', '../img/img2-block3.jpg', '../img/img1-block3.jpg'],
   },
   11: {
     group: 4,
-    imgSet: ['../img/img3-block4.jpg', '../img/img2-block3.jpg', '../img/img1-block3.jpg']
+    imgSet: ['../img/img3-block4.jpg', '../img/img2-block3.jpg', '../img/img1-block3.jpg'],
   },
   12: {
     group: 4,
-    imgSet: ['../img/img4-block4.jpg', '../img/img2-block3.jpg', '../img/img1-block3.jpg']
+    imgSet: ['../img/img4-block4.jpg', '../img/img2-block3.jpg', '../img/img1-block3.jpg'],
   },
   13: {
     group: 4,
-    imgSet: ['../img/img1-block4.jpg', '../img/img2-block3.jpg', '../img/img1-block3.jpg']
+    imgSet: ['../img/img1-block4.jpg', '../img/img2-block3.jpg', '../img/img1-block3.jpg'],
   },
   14: {
     group: 4,
-    imgSet: ['../img/img2-block4.jpg', '../img/img2-block3.jpg', '../img/img1-block3.jpg']
+    imgSet: ['../img/img2-block4.jpg', '../img/img2-block3.jpg', '../img/img1-block3.jpg'],
   },
   15: {
     group: 4,
-    imgSet: ['../img/img3-block4.jpg', '../img/img2-block3.jpg', '../img/img1-block3.jpg']
+    imgSet: ['../img/img3-block4.jpg', '../img/img2-block3.jpg', '../img/img1-block3.jpg'],
   },
   16: {
     group: 4,
-    imgSet: ['../img/img4-block4.jpg', '../img/img2-block3.jpg', '../img/img1-block3.jpg']
+    imgSet: ['../img/img4-block4.jpg', '../img/img2-block3.jpg', '../img/img1-block3.jpg'],
   },
-}
+};
 
 // $(window).on('click', () => {
 //   if (overlay.hasClass('overlay_active')) {
@@ -210,8 +211,6 @@ $('.gallery__slides').on('click', (e) => {
   createMarkupForGallerySlider(parentElem, galleryData[targetID]);
 });
 
-
-
 function createMarkupForGallerySlider(parent, data) {
   for (let i = 0; i < data.imgSet.length; i++) {
     let item = document.createElement('li');
@@ -219,14 +218,13 @@ function createMarkupForGallerySlider(parent, data) {
     let img = document.createElement('img');
     img.src = data.imgSet[i];
     item.append(img);
-    parent.append(item)
+    parent.append(item);
   }
 
   let parentTop = $(window).scrollTop() + $(window).height() / 2;
   parent.css('top', `${parentTop}px`);
 
   new Glide('.glide_3', {
-    perView: 1
-  }).mount()
-
+    perView: 1,
+  }).mount();
 }

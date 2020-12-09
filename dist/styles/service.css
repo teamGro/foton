@@ -4,42 +4,38 @@
 
 .service__title {
   margin-bottom: 30px;
-  font-size    : 28px;
-  line-height  : 36px;
-  font-weight  : 700;
-}
-
-.service__wrapper {
-  overflow: hidden;
+  font-size: 28px;
+  line-height: 36px;
+  font-weight: 700;
 }
 
 .service__slides {
-  display : flex;
-  overflow: hidden;
+  display: flex;
 }
 
 .service__item {
   /* min-height      : 270px; */
   /*  */
-  border-radius   : 5px;
+  border-radius: 5px;
   background-color: #ffffff;
 }
 
 .service__subtitle {
   margin-bottom: 40px;
-  margin-top   : 40px;
+  margin-top: 40px;
 
-  font-size  : 18px;
+  font-size: 18px;
   line-height: 110%;
-  color      : #000;
+  color: #000;
   font-weight: 700;
-  text-align : center;
+  text-align: center;
 }
 
 .service__img-wrap {
-  display      : flex;
-  border-radius: 5px;
-  overflow     : hidden;
+  display: flex;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  overflow: hidden;
 }
 
 .service__img {
@@ -47,30 +43,40 @@
 }
 
 .service__watch-all {
-  display         : inline-block;
-  margin-top      : 35px;
-  padding         : 10px 22px;
-  border-radius   : 23px;
+  display: inline-block;
+  margin-top: 35px;
+  padding: 10px 22px;
+  border-radius: 23px;
   background-color: #ffffff;
-  border          : 1px solid #c6c6c6;
+  border: 1px solid #c6c6c6;
 
-  font-size  : 14px;
+  font-size: 14px;
   line-height: 36px;
-  color      : #c7c7c7;
+  color: #c7c7c7;
   font-weight: 700;
 }
 
-@media(min-width: 1300px) {
+@media (max-width: 1299px) {
+  .service__wrapper {
+    overflow: hidden;
+  }
+
   .service__slides {
-    flex-wrap      : wrap;
+    overflow: hidden;
+  }
+}
+
+@media (min-width: 1300px) {
+  .service__slides {
+    flex-wrap: wrap;
     justify-content: center;
   }
 
   .service__item {
-    width        : 22%;
+    width: 22%;
     margin-bottom: 4%;
-    box-shadow   : -0.105px 1.997px 34px rgba(38, 38, 38, 0.11);
-    transition   : box-shadow .3s linear;
+    box-shadow: -0.105px 1.997px 34px rgba(38, 38, 38, 0.11);
+    transition: box-shadow 0.3s linear;
   }
 
   .service__item:not(:nth-child(4n)) {
