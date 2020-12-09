@@ -1,24 +1,24 @@
 .overlay {
   position: absolute;
-  top: 0;
-  left: 0;
+  top     : 0;
+  left    : 0;
 
-  width: 0;
+  width : 0;
   height: 0;
 
   background-color: rgba(0, 0, 0, 0.8);
-  opacity: 0;
-  overflow: hidden;
+  opacity         : 0;
+  overflow        : hidden;
 
-  transform: translateX(100vw);
+  transform : translateX(100vw);
   transition: transform 0.3s linear;
 }
 
 .overlay_active {
-  width: 100vw;
-  height: 100%;
-  opacity: 1;
-  transform: translateX(0);
+  width     : 100vw;
+  height    : 100%;
+  opacity   : 1;
+  transform : translateX(0);
   transition: transform 0.3s linear;
 }
 
@@ -27,14 +27,14 @@
 }
 
 .modal__items {
-  position: absolute;
-  overflow: hidden;
-  display: flex;
+  position   : absolute;
+  overflow   : hidden;
+  display    : flex;
   align-items: center;
-  height: 100vh;
+  height     : 100vh;
 }
 
-.modal__item > img {
+.modal__item>img {
   width: 80%;
 }
 
@@ -43,10 +43,9 @@
 }
 
 .overlay__close {
-  position: absolute;
-  right: 5%;
+  transform: translate(-10px, 10px);
 
-  width: 25px;
+  width : 25px;
   height: 25px;
 
   transition: background-color 0.3s linear;
@@ -56,18 +55,18 @@
 .overlay__close:focus,
 .overlay__close:active {
   outline: none;
-  cursor: pointer;
+  cursor : pointer;
 }
 
 .overlay__close::before,
 .overlay__close::after {
   content: '';
 
-  display: block;
-  width: 100%;
-  height: 3px;
+  display         : block;
+  width           : 100%;
+  height          : 3px;
   background-color: #ffe701;
-  transition: background-color 0.3s linear;
+  transition      : background-color 0.3s linear;
 }
 
 .overlay__close::before {
@@ -89,44 +88,52 @@
 
 @media (min-width: 1024px) {
   .modal__arrows {
-    position: absolute;
-    right: 0;
+    position : absolute;
+    right    : 0;
     transform: translate(-50%, -50%);
 
-    display: block;
-    width: 49px;
-    height: 49px;
+    display      : block;
+    width        : 49px;
+    height       : 49px;
     border-radius: 50%;
-    box-shadow: -0.105px 1.997px 3px rgba(38, 38, 38, 0.2);
+    box-shadow   : -0.105px 1.997px 3px rgba(38, 38, 38, 0.2);
 
     background-color: #ffe701;
   }
 
   .modal__btn {
-    display: flex;
-    width: 100%;
-    height: 100%;
+    display        : flex;
+    width          : 100%;
+    height         : 100%;
     justify-content: center;
-    align-items: center;
+    align-items    : center;
   }
 
   .modal__btn:hover,
   .modal__btn:focus,
   .modal__btn:active {
     outline: none;
-    cursor: pointer;
+    cursor : pointer;
   }
 
   .modal__btn-elem {
-    width: 15px;
-    height: 15px;
+    width        : 15px;
+    height       : 15px;
     border-bottom: 2px solid #000;
-    border-right: 2px solid #000;
-    transform: rotate(-45deg) translate(-15%, -15%);
-    transition: border 0.3s linear;
+    border-right : 2px solid #000;
+    transform    : rotate(-45deg) translate(-15%, -15%);
+    transition   : border 0.3s linear;
   }
 
   .modal__btn:hover .modal__btn-elem {
     border-color: #fff;
   }
+}
+
+.modal-container {
+  max-width    : 500px !important;
+  padding      : 0;
+  margin       : 0;
+  border-radius: .3em;
+  box-shadow   : 0 0.1em 0.4em rgba(0, 0, 0, .3);
 }

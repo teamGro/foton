@@ -125,128 +125,34 @@ setTimeout(() => {
   btnElem.css('top', `${galleryHeight}px`);
 }, 300);
 
-let galleryData = {
-  1: {
-    group: 1,
-    imgSet: ['./img/img1-block3.jpg', './img/img2-block3.jpg', './img/img3-block3.jpg'],
+$('.gallery__link').fancybox({
+  loop: true,
+  keyboard: true,
+  infobar: false,
+  'max-width': '70vw',
+  imageScale: {
+    "overlayOpacity": 0.7,
   },
-  2: {
-    group: 2,
-    imgSet: ['./img/img2-block3.jpg', './img/img1-block3.jpg', './img/img3-block3.jpg'],
-  },
-  3: {
-    group: 3,
-    imgSet: ['./img/img3-block3.jpg', './img/img2-block3.jpg', './img/img1-block3.jpg'],
-  },
-  4: {
-    group: 4,
-    imgSet: ['./img/img4-block3.jpg', './img/img2-block3.jpg', './img/img1-block3.jpg'],
-  },
-  5: {
-    group: 5,
-    imgSet: ['./img/img1-block3.jpg', './img/img2-block3.jpg', './img/img1-block3.jpg'],
-  },
-  6: {
-    group: 6,
-    imgSet: ['./img/img2-block3.jpg', './img/img2-block3.jpg', './img/img1-block3.jpg'],
-  },
-  7: {
-    group: 7,
-    imgSet: ['./img/img3-block3.jpg', './img/img2-block3.jpg', './img/img1-block3.jpg'],
-  },
-  8: {
-    group: 4,
-    imgSet: ['./img/img4-block3.jpg', './img/img2-block3.jpg', './img/img1-block3.jpg'],
-  },
-  9: {
-    group: 4,
-    imgSet: ['./img/img1-block3.jpg', './img/img2-block3.jpg', './img/img1-block3.jpg'],
-  },
-  10: {
-    group: 4,
-    imgSet: ['./img/img2-block3.jpg', './img/img2-block3.jpg', './img/img1-block3.jpg'],
-  },
-  11: {
-    group: 4,
-    imgSet: ['./img/img3-block3.jpg', './img/img2-block3.jpg', './img/img1-block3.jpg'],
-  },
-  12: {
-    group: 4,
-    imgSet: ['./img/img4-block3.jpg', './img/img2-block3.jpg', './img/img1-block3.jpg'],
-  },
-  13: {
-    group: 4,
-    imgSet: ['./img/img1-block3.jpg', './img/img2-block3.jpg', './img/img1-block3.jpg'],
-  },
-  14: {
-    group: 4,
-    imgSet: ['./img/img2-block3.jpg', './img/img2-block3.jpg', './img/img1-block3.jpg'],
-  },
-  15: {
-    group: 4,
-    imgSet: ['./img/img3-block3.jpg', './img/img2-block3.jpg', './img/img1-block3.jpg'],
-  },
-  16: {
-    group: 4,
-    imgSet: ['./img/img4-block3.jpg', './img/img2-block3.jpg', './img/img1-block3.jpg'],
-  },
-};
+  buttons: [
+    'close'
+  ],
+  btnTpl: {
+    close:
+      `<button data-fancybox-close class="overlay__close" title="{{CLOSE}}"></button>`,
+    arrowLeft:
+      '<button data-fancybox-prev class="fancybox-button fancybox-button--arrow_left" title="{{PREV}}">' +
+      '<div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.28 15.7l-1.34 1.37L5 12l4.94-5.07 1.34 1.38-2.68 2.72H19v1.94H8.6z"/></svg></div>' +
+      "</button>",
 
-// $(window).on('click', () => {
-//   if (overlay.hasClass('overlay_active')) {
-//     console.log(2);
-//     overlay.removeClass('overlay_active');
-//   }
-// })
+    arrowRight:
+      '<button data-fancybox-next class="fancybox-button fancybox-button--arrow_right" title="{{NEXT}}">' +
+      '<div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.4 12.97l-2.68 2.72 1.34 1.38L19 12l-4.94-5.07-1.34 1.38 2.68 2.72H5v1.94z"/></svg></div>' +
+      "</button>",
+  },
 
-let overlay = $('.overlay');
-let btnClose = overlay.find('.overlay__close');
-$('.gallery__slides').on('click', (e) => {
-  let target = $(e.target);
-  target = target.closest('.gallery__link');
-  targetID = target.attr('id');
+  // beforeShow: function () {
+  //   this.width = 800;
+  //   this.height = 600;
+  // }
 
-  overlay.addClass('overlay_active');
-  overlay.css('transform', 'translateX(0)');
-
-  let parentElem = overlay.find('.modal__items');
-  createMarkupForGallerySlider(parentElem, galleryData[targetID]);
-
-  btnClose.css('top', `${$(window).scrollTop() + 30}px`);
-
-  let arrows = overlay.find('.modal__arrows');
-  let arrowTopPosition = $(window).scrollTop() + $(window).height() / 2;
-  arrows.css('top', `${arrowTopPosition}px`);
 });
-
-btnClose.on('click', () => {
-  overlay.css('transform', 'translateX(100vw)');
-
-  setTimeout(() => {
-    modalSlider.destroy();
-    overlay.find('.modal__items').empty();
-    overlay.removeClass('overlay_active');
-  }, 300);
-});
-
-let modalSlider;
-function createMarkupForGallerySlider(parent, data) {
-  let imgHeight;
-  for (let i = 0; i < data.imgSet.length; i++) {
-    let item = document.createElement('li');
-    item.className = 'glide__slide modal__item';
-    let img = document.createElement('img');
-    img.src = data.imgSet[i];
-    item.append(img);
-    parent.append(item);
-    imgHeight = img.clientHeight;
-  }
-
-  let parentTop = $(window).scrollTop();
-  parent.css('top', `${parentTop}px`);
-  //parent.css('transform', `translateY(${parent.height() / 2}px)`);
-
-  modalSlider = new Glide('.glide_3', {
-    perView: 1,
-  }).mount();
-}
