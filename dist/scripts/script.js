@@ -121,8 +121,12 @@ new Glide('.glide', {
 
 setTimeout(() => {
   let btnElem = $('.gallery__arrows');
-  let galleryHeight = $('.gallery__wrapper').height() / 2 + 5;
-  btnElem.css('top', `${galleryHeight}px`);
+  for (let i = 0; i < 10; i++) {
+    let galleryHeight = $('.gallery__wrapper').height() / 2 + 5;
+    if (galleryHeight < 150) continue;
+    btnElem.css('top', `${galleryHeight}px`);
+    break;
+  }
 }, 500);
 
 // $('.gallery__link').fancybox({
