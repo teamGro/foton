@@ -1,7 +1,6 @@
 .usage {
   background-color: #181818;
-  /*  */
-  padding: 60px 0 30px;
+  padding         : 60px 0 30px;
 }
 
 .usage__about {
@@ -9,9 +8,9 @@
 }
 
 .usage__title {
-  font-size: 28px;
+  font-size  : 28px;
   line-height: 36px;
-  color: #ffe701;
+  color      : #ffe701;
   font-weight: 700;
 }
 

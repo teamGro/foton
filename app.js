@@ -7,7 +7,7 @@ if (port === null || port === '' || port === undefined) {
     port = 8000;
 }
 app.set('port', port);
-app.use(express.static(__dirname + '/dist'));
+app.use(express.static(__dirname + '/public'));
 app.disable('x-powered-by');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
