@@ -1,33 +1,29 @@
 @font-face {
-  font-family: "Montserrat";
-  font-style : normal;
+  font-family: 'Montserrat';
+  font-style: normal;
   font-weight: 400;
-  src        : url("../fonts/montserrat-v15-latin_cyrillic-regular.woff2") format("woff2"),
-    url("../fonts/montserrat-v15-latin_cyrillic-regular.woff") format("woff");
+  src: url('../fonts/montserrat-v15-latin_cyrillic-regular.woff2') format('woff2'), url('../fonts/montserrat-v15-latin_cyrillic-regular.woff') format('woff');
 }
 
 @font-face {
-  font-family: "Montserrat";
-  font-style : normal;
+  font-family: 'Montserrat';
+  font-style: normal;
   font-weight: 500;
-  src        : url("../fonts/montserrat-v15-latin_cyrillic-500.woff2") format("woff2"),
-    url("../fonts/montserrat-v15-latin_cyrillic-500.woff") format("woff");
+  src: url('../fonts/montserrat-v15-latin_cyrillic-500.woff2') format('woff2'), url('../fonts/montserrat-v15-latin_cyrillic-500.woff') format('woff');
 }
 
 @font-face {
-  font-family: "Montserrat";
-  font-style : normal;
+  font-family: 'Montserrat';
+  font-style: normal;
   font-weight: 700;
-  src        : url("../fonts/montserrat-v15-latin_cyrillic-700.woff2") format("woff2"),
-    url("../fonts/montserrat-v15-latin_cyrillic-700.woff") format("woff");
+  src: url('../fonts/montserrat-v15-latin_cyrillic-700.woff2') format('woff2'), url('../fonts/montserrat-v15-latin_cyrillic-700.woff') format('woff');
 }
 
 html {
   box-sizing: border-box;
-  width     : 100%;
-  max-width : 100%;
+  width: 100%;
+  max-width: 100%;
   overflow-x: hidden;
-
 }
 
 *,
@@ -39,38 +35,35 @@ html {
 body {
   position: relative;
 
-  margin    : 0;
-  padding   : 0;
-  width     : 100%;
-  max-width : 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100%;
   overflow-x: hidden;
 
-  background-color: #f9f9f9;
-
-  font-size  : 15px;
+  font-size: 15px;
   line-height: 23px;
-  color      : #000000;
+  color: #000000;
   font-weight: 500;
-  font-family: "Montserrat";
-  text-align : center;
+  font-family: 'Montserrat';
 }
 
 img {
   max-width: 100%;
-  height   : auto;
+  height: auto;
 }
 
 a {
   text-decoration: none;
-  color          : inherit;
-  font           : inherit;
-  cursor         : pointer;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
 }
 
 ul {
   list-style: none;
-  padding   : 0;
-  margin    : 0;
+  padding: 0;
+  margin: 0;
 }
 
 h1,
@@ -78,35 +71,35 @@ h2,
 h3,
 p {
   padding: 0;
-  margin : 0;
+  margin: 0;
 
   font: inherit;
 }
 
 button {
-  border : none;
-  margin : 0;
+  border: none;
+  margin: 0;
   padding: 0;
 
   background-color: transparent;
-  cursor          : pointer;
+  cursor: pointer;
 }
 
 .container {
   min-width: 320px;
   max-width: 1300px;
-  margin   : 0 auto;
-  padding  : 0 10px;
+  margin: 0 auto;
+  padding: 0 10px;
 }
 
 .visually-hidden {
   position: absolute !important;
-  clip    : rect(1px 1px 1px 1px);
-  clip    : rect(1px, 1px, 1px, 1px);
-  border  : 0 !important;
-  height  : 1px !important;
-  width   : 1px !important;
-  padding : 0 !important;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  padding: 0 !important;
   overflow: hidden;
 }
 
@@ -130,24 +123,24 @@ button {
 
 .service__item::before,
 .gallery__link::before {
-  position         : absolute;
-  top              : 0;
-  left             : -75%;
-  z-index          : 2;
-  display          : block;
-  content          : '';
-  width            : 50%;
-  height           : 100%;
-  background       : -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, .3) 100%);
-  background       : linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, .3) 100%);
+  position: absolute;
+  top: 0;
+  left: -75%;
+  z-index: 2;
+  display: block;
+  content: '';
+  width: 50%;
+  height: 100%;
+  background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 100%);
+  background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 100%);
   -webkit-transform: skewX(-25deg);
-  transform        : skewX(-25deg);
+  transform: skewX(-25deg);
 }
 
 .service__item:hover::before,
 .gallery__link:hover::before {
-  -webkit-animation: shine .75s;
-  animation        : shine .75s;
+  -webkit-animation: shine 0.75s;
+  animation: shine 0.75s;
 }
 
 @-webkit-keyframes shine {
