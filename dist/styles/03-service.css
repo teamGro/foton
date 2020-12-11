@@ -68,7 +68,6 @@
 @media (min-width: 1300px) {
   .service__slides {
     flex-wrap: wrap;
-    justify-content: center;
   }
 
   .service__item {
