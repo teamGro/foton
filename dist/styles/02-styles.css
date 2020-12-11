@@ -32,22 +32,6 @@ html {
   box-sizing: inherit;
 }
 
-body {
-  position: relative;
-
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  max-width: 100%;
-  overflow-x: hidden;
-
-  font-size: 15px;
-  line-height: 23px;
-  color: #000000;
-  font-weight: 500;
-  font-family: 'Montserrat';
-}
-
 img {
   max-width: 100%;
   height: auto;
